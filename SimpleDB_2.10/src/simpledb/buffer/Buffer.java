@@ -189,6 +189,10 @@ public class Buffer {
       blk = contents.append(filename);
       pins = 0;
    }
+   /** CS4432-Project1:
+    * @returns the string showing the fields of the
+    * instance of Buffer: Id, Block data, and pin count
+    */
    public String toString() {
 	   return "ID: " + bufNum + ", Block: " + blk + ", Pin Count: " + pins;
    }

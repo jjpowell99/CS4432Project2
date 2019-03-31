@@ -20,7 +20,7 @@ import simpledb.file.*;
  */
 public class BufferMgr{
    private static final long MAX_TIME = 10000; // 10 seconds
-   private AbsBufferMgr bufferMgr;
+   private AbsBufferMgr bufferMgr; //CS4432-Project1: modified to be our abstract class so it can be changed for testing
    
    /**
     * Creates a new buffer manager having the specified 
@@ -36,6 +36,9 @@ public class BufferMgr{
     * @param numbuffers the number of buffer slots to allocate
     */
    public BufferMgr(int numbuffers) {
+	  /*CS4432-Project1:
+	   * can change between BasicBufferMgr and LRUBufferMgr without breaking the program, used for testing.
+	   */
       bufferMgr = new BasicBufferMgr(numbuffers);
    }
    
@@ -123,6 +126,11 @@ public class BufferMgr{
    private boolean waitingTooLong(long starttime) {
       return System.currentTimeMillis() - starttime > MAX_TIME;
    }
+   /** CS4432-Project1:
+    * @return the string of containing the type of buffer manager 
+    * and the contents of the frames. Done by calling the toString class
+    * of the bufferMgr variable, which will be type LRUBufferMgr or BasicBufferManager.
+    */
    public String toString() {
 	   return bufferMgr.toString();
    }

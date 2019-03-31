@@ -116,6 +116,13 @@ class BasicBufferMgr extends AbsBufferMgr{
          return buff;
       return null;
    }
+   
+   /**CS4432-Project1:
+    * Added a toString method. 
+    * @returns a string
+    * saying which buffer manager this is, and then
+    * a list of all the frames in it's bufferpool.
+    */
    public String toString() {
 	   String output = "Basic Buffer Manager\n";
 	   for(Buffer b: bufferpool) {
