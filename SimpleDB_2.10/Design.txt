@@ -1,4 +1,34 @@
 Design.txt
 Andrew Nolan and Jackson Powell
+	In order to develop a clean extension of the SimpleDB buffer manager 
+we made the processes of finding a buffer to replace and finding an existing 
+block already in the buffer more efficient in their implementations in LRUBufferMgr.java 
+as compared to BasicBufferMgr.java. Additionally, reporting toString methods were added to BufferMgr, 
+BasicBufferMgr, LRUBufferMgr, and Buffer were added through utilizing existing variables 
+in these classes. 
 
+	To make finding an unpinned buffer to replace more efficient, a queue data 
+structure was utilized to keep track of the least recently used unpinned buffers 
+for an LRU replacement policy. The key places in SimpleDB that required changes 
+in order to realize this extension were in the:
+ 	- Constructor for the LRUBufferMgr, in order to initially add all of the available empty buffers. 
+ 	- unpin method, where newly available buffers are added to the end of the queue
+ 	- chooseUnpinnedBuffer method, where the least recently used unpinned buffer 
+ 	(the unpinned buffer nearest to the front of the queue) is selected and removed from the queue.
+ 	- findExistingBuffer method, where the accessed buffer must be removed from its place in the 
+ 	queue, if it has one, and placing it at the end of the queue, if it remains unpinned in order 
+ 	to keep the queue data structure updated for the LRU policy.
+ 	
+	To make finding existing blocks more efficient, 
+a hashmap data structure was used, mapping blocks currently in the buffer pool 
+to the buffers to which they are assigned. The key places in SimpleDB that required 
+changes in order to realize this extension were in the:
+	- findExistingBuffer method, where the hashmap was used to find the buffer given 
+	a particular block, if it existed, rather than performing a scan over the entire 
+	buffer pool.
+	- chooseUnpinnedBuffer method, where the buffer that was being replaced has its 
+	currently assigned block removed from the hashmap as it will no longer exist 
+	in the buffer pool.
+	- pin method, where the hashmap of currently existing blocks is updated with 
+	the potentially new block-buffer pair for the newly pinned buffer.
 /*TO-DO: finish this document */
