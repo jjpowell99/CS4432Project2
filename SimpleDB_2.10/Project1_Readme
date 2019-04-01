@@ -4,7 +4,26 @@ Andrew Nolan and Jackson Powell
 -----------------------------------
 Installing Modified our simpledb
 -----------------------------------
-The modified version of simpledb is installed and functions in
-the same way as the original simpledb program.
+The modified version of SimpleDB is installed and functions in
+the same way as the original SimpleDB program.
+
+In order to run SimpleDB:
+	1. Run Startup.java with a parameter describing the name of 
+	the working directory for the SimpleDB server. The Startup.java 
+	file can be found under the simpledb.server package in the src folder. 
+	2. The database may then be interacted with through the studentClient/simpledb folder by either:
+		a. Running set commands in the java files found in the , 
+		other than SQLInterpreter.java. 
+			- The program of set commands to demonstrate SimpleDB functionality for task 1 
+			of CS 4432 Project 1 is Example.java in this folder. 
+			- The program used to produce the testing output and results is Testing.java
+		b. Running SQLInterpreter.java may be run from this location to provide a prompt, where a subset 
+		of SQL may be directly entered to interact with database.  
+
+If one wishes to revert to the original version of SimpleDB, one must 
+change the BufferMgr.java file under the simpledb.buffer package in the 
+src folder. Within this file the instantiation of the buffer manager must be changed from 
+LRUBufferMgr(numbuffers) to BasicBufferMgr(numbuffers).
+
 
 /*TO-DO: finish this document */ 
