@@ -100,20 +100,43 @@ class BasicBufferMgr extends AbsBufferMgr{
    int available() {
       return numAvailable;
    }
-   
+   /**
+    * CS4432-Project1: Added timing to test time needed to find existing buffer.
+    * @param blk Block to find if existing in buffer pool.
+    * @return Buffer containing block if it exists. Otherwise, null.
+    */
    private Buffer findExistingBuffer(Block blk) {
+	  long startTime = System.nanoTime();
+	  long endTime;
+
       for (Buffer buff : bufferpool) {
          Block b = buff.block();
-         if (b != null && b.equals(blk))
+         if (b != null && b.equals(blk)) {
+        	 endTime = System.nanoTime();
+        	 System.out.println("Time for find existing buffer: " + (endTime-startTime) + " ns");
             return buff;
+         }
       }
+ 	  endTime = System.nanoTime();
+ 	  System.out.println("Time for find that buffer doesn't exist in pool: " + (endTime-startTime) + " ns");
       return null;
    }
-   
+   /**
+    * CS4432-Project1: Added timing to test time needed to choose an available buffer.
+    * @return First unpinned buffer found in scan of buffer pool.
+    */
    private Buffer chooseUnpinnedBuffer() {
+		  long startTime = System.nanoTime();
+		  long endTime;
       for (Buffer buff : bufferpool)
-         if (!buff.isPinned())
-         return buff;
+         if (!buff.isPinned()) {
+        	 endTime = System.nanoTime();
+        	 System.out.println("Time choose unpinned buffer: " + (endTime-startTime) + " ns");
+             return buff;
+
+         }
+ 	 endTime = System.nanoTime();
+ 	 System.out.println("Time determine no available buffers: " + (endTime-startTime) + " ns");
       return null;
    }
    

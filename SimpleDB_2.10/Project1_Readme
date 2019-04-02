@@ -22,8 +22,8 @@ In order to run SimpleDB:
 
 If one wishes to revert to the original version of SimpleDB, one must 
 change the BufferMgr.java file under the simpledb.buffer package in the 
-src folder. Within this file the instantiation of the buffer manager must be changed from 
-LRUBufferMgr(numbuffers) to BasicBufferMgr(numbuffers).
+src folder. Within this file on line 42 the instantiation of the buffer manager must be changed from 
+"LRUBufferMgr(numbuffers)" to "BasicBufferMgr(numbuffers)".
 
 
 /*TO-DO: finish this document */ 
