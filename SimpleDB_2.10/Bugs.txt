@@ -1,0 +1,10 @@
+BUGS.txt
+Andrew Nolan and Jackson Powell
+
+Known bugs:
+
+1) 	The cs4432db folder should be deleted and the server restarted before running examples.java or test.java
+	as the insert statements will create repeat values in the tables if ran again.
+	
+2) 	The folder cs4432db is known to cause problems. Sometimes deleting it and restarting the server will fix
+	these bugs. 

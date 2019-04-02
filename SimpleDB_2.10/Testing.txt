@@ -1,4 +1,13 @@
 Testing.txt
 Andrew Nolan and Jackson Powell
 
-/*TO-DO: finish this document */
+To run the tests for our version of simple.db you 
+must use the Testing.java file. This code will run
+many sql statements and print out the time they
+took to execute. Running this with the LRUBufferMgr
+and then with the BasicBufferMgr enabled you can
+compare the times to see which ran more efficiently.
+You can tell that our version of the buffer manager,
+the LRU version, was more efficient due to the 
+improved times. An example output can be viewed
+below.
