@@ -165,5 +165,63 @@ public class Examples {
 			}
 		}
 	}
-
 }
+
+/**
+ * We chose these sql tests to explore the capabilites of
+ * simpledb. Our tests cover a broad range of sql: selects,
+ * deletes, updates, inserts, create tables, create views,
+ * and joins. These tests demonstrate different things that
+ * simple db can do, plus they can (and are) used later in our 
+ * Testing.java class to show that the system still functions
+ * after our improvements.
+ */
+
+/**
+Here is the output from running examples.java 
+Table PROFESSOR created.
+PROFESSOR records inserted.
+Table DEPARTMENT created.
+DEPARTMENT records inserted.
+Table COURSE created.
+COURSE records inserted.
+Table TEACHING created.
+TEACHING records inserted.
+
+Course Title
+===========
+db systems 2
+Operating Systems
+calculus IV
+Discrete Math
+History of Technology
+Inquiry Seminar
+
+Course Title
+===========
+db systems 2
+Operating Systems
+calculus IV
+History of Technology
+Inquiry Seminar
+
+Course Title
+===========
+db systems 2
+Operating Systems
+calculus IV
+History of Technology
+Humanities Practicum
+
+This is the view data
+Neamtu
+Cullon
+Christophe
+Clark
+Wills
+
+PName|	 Title
+============
+Neamtu	 db systems 2
+Christophe
+ */
