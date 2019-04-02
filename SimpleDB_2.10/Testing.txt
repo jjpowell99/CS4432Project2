@@ -21,3 +21,54 @@ tables, create views, and joins. We think that
 this demonstrates an ample coverage of the simple
 db system and shows that our improvements do not
 break the code and in fact improve its efficiency.
+
+==============================================
+The Real Important Stuff
+==============================================
+To see the improvements of our system testing.java
+should be ran multiple times with both BasicBufferMgr
+and with LRUBufferMgr. The results of our tests were as follows:
+
+LRU: 3502ms 2176ms 2493ms 2435ms 2113ms 	| avg=2543.8ms
+Basic: 2259ms 2567ms 3068ms 3842ms 2951ms	| avg=2937.4ms
+
+As can be seen on average the testing file is almost half
+a second faster with our improved system.
+The best and worst case scenarios are also both better for
+our improved code. 
+
+Please run the tests and see for yourself. (Remember to 
+delete the database and restart it before running the 
+tests again.)
+
+Besides time our memory allocation is far superior,
+as can be seen below. 
+
+Status of the BasicBufferMgr's buffer after running testing.java
+
+Basic Buffer Manager
+ID: 0, Block: [file fldcat.tbl, block 1], Pin Count: 1
+ID: 1, Block: [file viewcat.tbl, block 0], Pin Count: 0
+ID: 2, Block: null, Pin Count: 0
+ID: 3, Block: null, Pin Count: 0
+ID: 4, Block: null, Pin Count: 0
+ID: 5, Block: null, Pin Count: 0
+ID: 6, Block: null, Pin Count: 0
+ID: 7, Block: null, Pin Count: 0
+
+Status of the LRUBufferMgr's buffer after running testing.java:
+
+LRU Buffer Manager
+ID: 0, Block: [file fldcat.tbl, block 1], Pin Count: 0
+ID: 1, Block: [file course.tbl, block 0], Pin Count: 1
+ID: 2, Block: [file professor.tbl, block 0], Pin Count: 2
+ID: 3, Block: [file fldcat.tbl, block 0], Pin Count: 0
+ID: 4, Block: [file viewcat.tbl, block 0], Pin Count: 0
+ID: 5, Block: [file fldcat.tbl, block 3], Pin Count: 0
+ID: 6, Block: [file fldcat.tbl, block 2], Pin Count: 0
+ID: 7, Block: [file teaching.tbl, block 0], Pin Count: 2
+
+
+As you can see the buffer is fully utilized in our version as opposed
+to the basic version. This allows for a more effective use of memory and
+thus better optimization.

@@ -8,3 +8,5 @@ Known bugs:
 	
 2) 	The folder cs4432db is known to cause problems. Sometimes deleting it and restarting the server will fix
 	these bugs. 
+	
+3) 	If the times are longer for our improved system please try again, on average ours is much better.

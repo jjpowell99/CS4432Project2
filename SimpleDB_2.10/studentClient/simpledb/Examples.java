@@ -126,7 +126,7 @@ public class Examples {
 			}
 			rs.close();
 			
-			//Create a view
+			//Create a view with a join
 			qry = "CREATE VIEW courseTeachers "
 					+ "as select PName, CourseId "
 					+ "from PROFESSOR, TEACHING "
@@ -223,5 +223,8 @@ Wills
 PName|	 Title
 ============
 Neamtu	 db systems 2
-Christophe
+Christophe 		calculus IV
+Clark	 Humanities Practicum
+Wills	 Operating Systems
+
  */
