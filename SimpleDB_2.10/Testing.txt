@@ -72,3 +72,157 @@ ID: 7, Block: [file teaching.tbl, block 0], Pin Count: 2
 As you can see the buffer is fully utilized in our version as opposed
 to the basic version. This allows for a more effective use of memory and
 thus better optimization.
+
+
+This buffer utilization through the LRU replacement policy may also be seen 
+for the buffer states shown below that occurred for the creation of the 
+Professor table when running Testing.java.
+
+LRU Buffer Manager
+ID: 0, Block: [file fldcat.tbl, block 1], Pin Count: 0
+ID: 1, Block: [file course.tbl, block 0], Pin Count: 0
+ID: 2, Block: [file professor.tbl, block 0], Pin Count: 0
+ID: 3, Block: [file fldcat.tbl, block 0], Pin Count: 0
+ID: 4, Block: [file tblcat.tbl, block 0], Pin Count: 0
+ID: 5, Block: [file fldcat.tbl, block 3], Pin Count: 0
+ID: 6, Block: [file fldcat.tbl, block 2], Pin Count: 0
+ID: 7, Block: [file teaching.tbl, block 0], Pin Count: 0
+
+Time for find existing buffer: 1000 ns
+LRU Buffer Manager
+ID: 0, Block: [file fldcat.tbl, block 1], Pin Count: 0
+ID: 1, Block: [file course.tbl, block 0], Pin Count: 0
+ID: 2, Block: [file professor.tbl, block 0], Pin Count: 0
+ID: 3, Block: [file fldcat.tbl, block 0], Pin Count: 0
+ID: 4, Block: [file tblcat.tbl, block 0], Pin Count: 1
+ID: 5, Block: [file fldcat.tbl, block 3], Pin Count: 0
+ID: 6, Block: [file fldcat.tbl, block 2], Pin Count: 0
+ID: 7, Block: [file teaching.tbl, block 0], Pin Count: 0
+
+LRU Buffer Manager
+ID: 0, Block: [file fldcat.tbl, block 1], Pin Count: 0
+ID: 1, Block: [file course.tbl, block 0], Pin Count: 0
+ID: 2, Block: [file professor.tbl, block 0], Pin Count: 0
+ID: 3, Block: [file fldcat.tbl, block 0], Pin Count: 0
+ID: 4, Block: [file tblcat.tbl, block 0], Pin Count: 0
+ID: 5, Block: [file fldcat.tbl, block 3], Pin Count: 0
+ID: 6, Block: [file fldcat.tbl, block 2], Pin Count: 0
+ID: 7, Block: [file teaching.tbl, block 0], Pin Count: 0
+
+Time for find existing buffer: 900 ns
+LRU Buffer Manager
+ID: 0, Block: [file fldcat.tbl, block 1], Pin Count: 0
+ID: 1, Block: [file course.tbl, block 0], Pin Count: 0
+ID: 2, Block: [file professor.tbl, block 0], Pin Count: 0
+ID: 3, Block: [file fldcat.tbl, block 0], Pin Count: 1
+ID: 4, Block: [file tblcat.tbl, block 0], Pin Count: 0
+ID: 5, Block: [file fldcat.tbl, block 3], Pin Count: 0
+ID: 6, Block: [file fldcat.tbl, block 2], Pin Count: 0
+ID: 7, Block: [file teaching.tbl, block 0], Pin Count: 0
+
+LRU Buffer Manager
+ID: 0, Block: [file fldcat.tbl, block 1], Pin Count: 0
+ID: 1, Block: [file course.tbl, block 0], Pin Count: 0
+ID: 2, Block: [file professor.tbl, block 0], Pin Count: 0
+ID: 3, Block: [file fldcat.tbl, block 0], Pin Count: 0
+ID: 4, Block: [file tblcat.tbl, block 0], Pin Count: 0
+ID: 5, Block: [file fldcat.tbl, block 3], Pin Count: 0
+ID: 6, Block: [file fldcat.tbl, block 2], Pin Count: 0
+ID: 7, Block: [file teaching.tbl, block 0], Pin Count: 0
+
+Time for find existing buffer: 1000 ns
+LRU Buffer Manager
+ID: 0, Block: [file fldcat.tbl, block 1], Pin Count: 1
+ID: 1, Block: [file course.tbl, block 0], Pin Count: 0
+ID: 2, Block: [file professor.tbl, block 0], Pin Count: 0
+ID: 3, Block: [file fldcat.tbl, block 0], Pin Count: 0
+ID: 4, Block: [file tblcat.tbl, block 0], Pin Count: 0
+ID: 5, Block: [file fldcat.tbl, block 3], Pin Count: 0
+ID: 6, Block: [file fldcat.tbl, block 2], Pin Count: 0
+ID: 7, Block: [file teaching.tbl, block 0], Pin Count: 0
+
+LRU Buffer Manager
+ID: 0, Block: [file fldcat.tbl, block 1], Pin Count: 0
+ID: 1, Block: [file course.tbl, block 0], Pin Count: 0
+ID: 2, Block: [file professor.tbl, block 0], Pin Count: 0
+ID: 3, Block: [file fldcat.tbl, block 0], Pin Count: 0
+ID: 4, Block: [file tblcat.tbl, block 0], Pin Count: 0
+ID: 5, Block: [file fldcat.tbl, block 3], Pin Count: 0
+ID: 6, Block: [file fldcat.tbl, block 2], Pin Count: 0
+ID: 7, Block: [file teaching.tbl, block 0], Pin Count: 0
+
+Time for find existing buffer: 900 ns
+LRU Buffer Manager
+ID: 0, Block: [file fldcat.tbl, block 1], Pin Count: 0
+ID: 1, Block: [file course.tbl, block 0], Pin Count: 0
+ID: 2, Block: [file professor.tbl, block 0], Pin Count: 0
+ID: 3, Block: [file fldcat.tbl, block 0], Pin Count: 0
+ID: 4, Block: [file tblcat.tbl, block 0], Pin Count: 0
+ID: 5, Block: [file fldcat.tbl, block 3], Pin Count: 0
+ID: 6, Block: [file fldcat.tbl, block 2], Pin Count: 1
+ID: 7, Block: [file teaching.tbl, block 0], Pin Count: 0
+
+LRU Buffer Manager
+ID: 0, Block: [file fldcat.tbl, block 1], Pin Count: 0
+ID: 1, Block: [file course.tbl, block 0], Pin Count: 0
+ID: 2, Block: [file professor.tbl, block 0], Pin Count: 0
+ID: 3, Block: [file fldcat.tbl, block 0], Pin Count: 0
+ID: 4, Block: [file tblcat.tbl, block 0], Pin Count: 0
+ID: 5, Block: [file fldcat.tbl, block 3], Pin Count: 0
+ID: 6, Block: [file fldcat.tbl, block 2], Pin Count: 0
+ID: 7, Block: [file teaching.tbl, block 0], Pin Count: 0
+
+Time for find existing buffer: 1000 ns
+LRU Buffer Manager
+ID: 0, Block: [file fldcat.tbl, block 1], Pin Count: 0
+ID: 1, Block: [file course.tbl, block 0], Pin Count: 0
+ID: 2, Block: [file professor.tbl, block 0], Pin Count: 0
+ID: 3, Block: [file fldcat.tbl, block 0], Pin Count: 0
+ID: 4, Block: [file tblcat.tbl, block 0], Pin Count: 0
+ID: 5, Block: [file fldcat.tbl, block 3], Pin Count: 1
+ID: 6, Block: [file fldcat.tbl, block 2], Pin Count: 0
+ID: 7, Block: [file teaching.tbl, block 0], Pin Count: 0
+
+LRU Buffer Manager
+ID: 0, Block: [file fldcat.tbl, block 1], Pin Count: 0
+ID: 1, Block: [file course.tbl, block 0], Pin Count: 0
+ID: 2, Block: [file professor.tbl, block 0], Pin Count: 0
+ID: 3, Block: [file fldcat.tbl, block 0], Pin Count: 0
+ID: 4, Block: [file tblcat.tbl, block 0], Pin Count: 0
+ID: 5, Block: [file fldcat.tbl, block 3], Pin Count: 0
+ID: 6, Block: [file fldcat.tbl, block 2], Pin Count: 0
+ID: 7, Block: [file teaching.tbl, block 0], Pin Count: 0
+
+Time for find existing buffer: 900 ns
+LRU Buffer Manager
+ID: 0, Block: [file fldcat.tbl, block 1], Pin Count: 0
+ID: 1, Block: [file course.tbl, block 0], Pin Count: 0
+ID: 2, Block: [file professor.tbl, block 0], Pin Count: 1
+ID: 3, Block: [file fldcat.tbl, block 0], Pin Count: 0
+ID: 4, Block: [file tblcat.tbl, block 0], Pin Count: 0
+ID: 5, Block: [file fldcat.tbl, block 3], Pin Count: 0
+ID: 6, Block: [file fldcat.tbl, block 2], Pin Count: 0
+ID: 7, Block: [file teaching.tbl, block 0], Pin Count: 0
+
+Time for choose unpinned buffer: 5400 ns
+LRU Buffer Manager
+ID: 0, Block: [file fldcat.tbl, block 1], Pin Count: 0
+ID: 1, Block: [file course.tbl, block 0], Pin Count: 0
+ID: 2, Block: [file professor.tbl, block 0], Pin Count: 0
+ID: 3, Block: [file fldcat.tbl, block 0], Pin Count: 0
+ID: 4, Block: [file tblcat.tbl, block 0], Pin Count: 0
+ID: 5, Block: [file fldcat.tbl, block 3], Pin Count: 0
+ID: 6, Block: [file fldcat.tbl, block 2], Pin Count: 0
+ID: 7, Block: [file professor.tbl, block 1], Pin Count: 0
+
+Time for find existing buffer: 800 ns
+Time for choose unpinned buffer: 7400 ns
+LRU Buffer Manager
+ID: 0, Block: [file fldcat.tbl, block 1], Pin Count: 0
+ID: 1, Block: [file professor.tbl, block 1], Pin Count: 1
+ID: 2, Block: [file professor.tbl, block 0], Pin Count: 0
+ID: 3, Block: [file fldcat.tbl, block 0], Pin Count: 0
+ID: 4, Block: [file tblcat.tbl, block 0], Pin Count: 0
+ID: 5, Block: [file fldcat.tbl, block 3], Pin Count: 0
+ID: 6, Block: [file fldcat.tbl, block 2], Pin Count: 0
+ID: 7, Block: [file professor.tbl, block 1], Pin Count: 0
