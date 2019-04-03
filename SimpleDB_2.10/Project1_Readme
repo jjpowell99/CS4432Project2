@@ -26,4 +26,14 @@ src folder. Within this file on line 42 the instantiation of the buffer manager 
 "LRUBufferMgr(numbuffers)" to "BasicBufferMgr(numbuffers)".
 
 
-/*TO-DO: finish this document */ 
+-----------------------------------
+Files we Modified/Added
+-----------------------------------
+/simpledb2.10/src/simpledb/buffer/AbsBufferMgr.java
+/simpledb2.10/src/simpledb/buffer/BasicBufferMgr.java
+/simpledb2.10/src/simpledb/buffer/Buffer.java
+/simpledb2.10/src/simpledb/buffer/BufferMgr.java
+/simpledb2.10/src/simpledb/buffer/LRUBufferMgr.java
+
+/simpledb2.10/studentClient/simpledb/Examples.java
+/simpledb2.10/studentClient/simpledb/Testing.java

@@ -31,4 +31,15 @@ changes in order to realize this extension were in the:
 	in the buffer pool.
 	- pin method, where the hashmap of currently existing blocks is updated with 
 	the potentially new block-buffer pair for the newly pinned buffer.
-/*TO-DO: finish this document */
+	
+-----------------------------------
+Files we Modified/Added
+-----------------------------------
+/simpledb2.10/src/simpledb/buffer/AbsBufferMgr.java
+/simpledb2.10/src/simpledb/buffer/BasicBufferMgr.java
+/simpledb2.10/src/simpledb/buffer/Buffer.java
+/simpledb2.10/src/simpledb/buffer/BufferMgr.java
+/simpledb2.10/src/simpledb/buffer/LRUBufferMgr.java
+
+/simpledb2.10/studentClient/simpledb/Examples.java
+/simpledb2.10/studentClient/simpledb/Testing.java
