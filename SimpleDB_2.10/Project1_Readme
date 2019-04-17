@@ -38,3 +38,4 @@ simpledb.index.planner.IndexUpdatePlanner.java
 
 simpledb.metadata.IndexMgr.java
 simpledb.metadata.MetadataMgr.java
+simpledb.metadata.IndexInfo.java
