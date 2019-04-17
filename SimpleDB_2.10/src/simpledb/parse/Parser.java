@@ -232,14 +232,15 @@ public class Parser {
 //  Method for parsing create index commands
    
    public CreateIndexData createIndex() {
+	  String indexType = lex.eatId(); //cs4432-project2: gets the index type {sh, bt, or eh}
       lex.eatKeyword("index");
-      String idxname = lex.eatId();
+      String idxname = lex.eatId(); 
       lex.eatKeyword("on");
       String tblname = lex.eatId();
       lex.eatDelim('(');
       String fldname = field();
       lex.eatDelim(')');
-      return new CreateIndexData(idxname, tblname, fldname);
+      return new CreateIndexData(indexType, idxname, tblname, fldname); // cs4432-project2: constructor constructs with additional parameter.
    }
 }
 

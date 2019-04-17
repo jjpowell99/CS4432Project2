@@ -29,11 +29,12 @@ src folder. Within this file on line 42 the instantiation of the buffer manager 
 -----------------------------------
 Files we Modified/Added
 -----------------------------------
-/simpledb2.10/src/simpledb/buffer/AbsBufferMgr.java
-/simpledb2.10/src/simpledb/buffer/BasicBufferMgr.java
-/simpledb2.10/src/simpledb/buffer/Buffer.java
-/simpledb2.10/src/simpledb/buffer/BufferMgr.java
-/simpledb2.10/src/simpledb/buffer/LRUBufferMgr.java
+simpledb.parse.Parser.java
+simpledb.parse.CreateIndexData.java
 
-/simpledb2.10/studentClient/simpledb/Examples.java
-/simpledb2.10/studentClient/simpledb/Testing.java
+simpledb.server.simpleDB.java
+
+simpledb.index.planner.IndexUpdatePlanner.java
+
+simpledb.metadata.IndexMgr.java
+simpledb.metadata.MetadataMgr.java
