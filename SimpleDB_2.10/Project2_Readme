@@ -1,0 +1,18 @@
+READ ME
+Andrew Nolan and Jackson Powell
+
+-----------------------------------
+Files we Modified/Added
+-----------------------------------
+simpledb.parse.Parser.java
+simpledb.parse.CreateIndexData.java
+
+simpledb.server.simpleDB.java
+
+simpledb.index.planner.IndexUpdatePlanner.java
+
+simpledb.metadata.IndexMgr.java
+simpledb.metadata.MetadataMgr.java
+simpledb.metadata.IndexInfo.java
+
+simpledb.extensible.ExtensibleHash.java

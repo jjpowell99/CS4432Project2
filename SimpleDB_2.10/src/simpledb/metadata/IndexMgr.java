@@ -64,8 +64,8 @@ public class IndexMgr {
          if (rf.getString("tablename").equals(tblname)) {
          String idxname = rf.getString("indexname");
          String fldname = rf.getString("fieldname");
-         String indexType = rf.getString("indexType");
-         IndexInfo ii = new IndexInfo(indexType,idxname, tblname, fldname, tx);
+         String indexType = rf.getString("indexType");//cs4432-project2: added index type
+         IndexInfo ii = new IndexInfo(indexType,idxname, tblname, fldname, tx);//cs4432-project2: added index type
          result.put(fldname, ii);
       }
       rf.close();
