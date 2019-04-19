@@ -145,7 +145,7 @@ class LRUBufferMgr extends AbsBufferMgr {
 		long endTime;
 		Buffer bufferToAccess = existingBlockMap.get(blk);
 		endTime = System.nanoTime();
-		System.out.println("Time for find existing buffer: " + (endTime - startTime) + " ns");
+		//System.out.println("Time for find existing buffer: " + (endTime - startTime) + " ns");
 		if (bufferToAccess != null) {
 			possibleBuffers.remove(bufferToAccess);
 			if (bufferToAccess.isPinned())
@@ -183,7 +183,7 @@ class LRUBufferMgr extends AbsBufferMgr {
 					existingBlockMap.remove(toRemove.block());
 				}
 				endTime = System.nanoTime();
-				System.out.println("Time for choose unpinned buffer: " + (endTime - startTime) + " ns");
+				//System.out.println("Time for choose unpinned buffer: " + (endTime - startTime) + " ns");
 				return toRemove;
 			}
 		}
@@ -192,7 +192,7 @@ class LRUBufferMgr extends AbsBufferMgr {
 		 * for (Buffer buff : bufferpool) if (!buff.isPinned()) return buff;
 		 */
 		endTime = System.nanoTime();
-		System.out.println("Time for find that no buffers available: " + (endTime - startTime) + " ns");
+		//System.out.println("Time for find that no buffers available: " + (endTime - startTime) + " ns");
 		return null;
 	}
 

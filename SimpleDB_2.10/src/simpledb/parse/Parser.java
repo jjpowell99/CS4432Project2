@@ -233,7 +233,8 @@ public class Parser {
    
    public CreateIndexData createIndex() {
 	  String indexType = lex.eatId(); //cs4432-project2: gets the index type {sh, bt, or eh}
-      lex.eatKeyword("index");
+      System.out.println(indexType + "\n\n");
+	  lex.eatKeyword("index");
       String idxname = lex.eatId(); 
       lex.eatKeyword("on");
       String tblname = lex.eatId();

@@ -51,7 +51,7 @@ public class BufferMgr{
     * @return the buffer pinned to that block
     */
    public synchronized Buffer pin(Block blk) {
-	   System.out.println(this.toString());
+	   //System.out.println(this.toString());
       try {
          long timestamp = System.currentTimeMillis();
          Buffer buff = bufferMgr.pin(blk);
@@ -61,7 +61,7 @@ public class BufferMgr{
          }
          if (buff == null)
             throw new BufferAbortException();
-         System.out.println(this.toString());
+         //System.out.println(this.toString());
          return buff;
       }
       catch(InterruptedException e) {
