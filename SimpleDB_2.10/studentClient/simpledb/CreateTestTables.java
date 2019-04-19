@@ -58,7 +58,7 @@ public class CreateTestTables {
 					rand=new Random(1);// ensure every table gets the same data
 					for(int j=0;j<maxSize;j++)
 					{
-						s.executeUpdate("insert into test"+i+" ("+(a+0)+"1,"+(a+0)+"2) values("+rand.nextInt(1000)+","+rand.nextInt(1000)+ ")");
+						s.executeUpdate("insert into test"+i+" (a1,a2) values("+rand.nextInt(1000)+","+rand.nextInt(1000)+ ")");
 					}
 				}
 				else//case where i=5

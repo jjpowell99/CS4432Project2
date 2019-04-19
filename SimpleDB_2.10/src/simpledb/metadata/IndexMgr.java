@@ -26,6 +26,7 @@ public class IndexMgr {
          sch.addStringField("indexname", MAX_NAME);
          sch.addStringField("tablename", MAX_NAME);
          sch.addStringField("fieldname", MAX_NAME);
+         sch.addStringField("indexType", MAX_NAME); //cs4432-project2: I hate this
          tblmgr.createTable("idxcat", sch, tx);
       }
       ti = tblmgr.getTableInfo("idxcat", tx);

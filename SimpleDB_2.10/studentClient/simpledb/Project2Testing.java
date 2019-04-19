@@ -28,21 +28,21 @@ public class Project2Testing {
 			time1 = endTime - startTime;
 			
 			// Test Table 2
-			qry = "select b1, b2 from test2 where b1 = " + testConstant;
+			qry = "select a1, a2 from test2 where a1 = " + testConstant;
 			startTime = System.currentTimeMillis(); // Time at start of query.
 			stmt.executeQuery(qry);
 			endTime = System.currentTimeMillis(); // Time at end of query
 			time2 = endTime - startTime;
 			
 			// Test Table 3
-			qry = "select c1, c2 from test3 where c1 = " + testConstant;
+			qry = "select a1, a2 from test3 where a1 = " + testConstant;
 			startTime = System.currentTimeMillis(); // Time at start of query.
 			stmt.executeQuery(qry);
 			endTime = System.currentTimeMillis(); // Time at end of query
 			time3 = endTime - startTime;
 			
 			// Test Table 4
-			qry = "select d1, d2 from test4 where d1 = " + testConstant;
+			qry = "select a1, a2 from test4 where a1 = " + testConstant;
 			startTime = System.currentTimeMillis(); // Time at start of query.
 			stmt.executeQuery(qry);
 			endTime = System.currentTimeMillis(); // Time at end of query
@@ -51,28 +51,28 @@ public class Project2Testing {
 			// Test Joins
 			
 			// Test Join Tables 1 and 5
-			qry = "select e1, e2, a1, a2 from test5, test1 where e1 = a1";
+			qry = "select a1, a2, a1, a2 from test5, test1 where a1 = a1";
 			startTime = System.currentTimeMillis(); // Time at start of query.
 			stmt.executeQuery(qry);
 			endTime = System.currentTimeMillis(); // Time at end of query
 			joinTime1 = endTime - startTime;
 			
 			// Test Join Tables 2 and 5
-			qry = "select e1, e2, b1, b2 from test5, test2 where e1 = b1";
+			qry = "select a1, a2, a1, a2 from test5, test2 where a1 = a1";
 			startTime = System.currentTimeMillis(); // Time at start of query.
 			stmt.executeQuery(qry);
 			endTime = System.currentTimeMillis(); // Time at end of query
 			joinTime2 = endTime - startTime;
 			
 			// Test Join Tables 3 and 5
-			qry = "select e1, e2, c1, c2 from test5, test3 where e1 = c1";
+			qry = "select a1, a2, a1, a2 from test5, test3 where a1 = a1";
 			startTime = System.currentTimeMillis(); // Time at start of query.
 			stmt.executeQuery(qry);
 			endTime = System.currentTimeMillis(); // Time at end of query
 			joinTime3 = endTime - startTime;
 			
 			// Test Join Tables 4 and 5
-			qry = "select e1, e2, d1, d2 from test5, test4 where e1 = d1";
+			qry = "select a1, a2, a1, a2 from test5, test4 where a1 = a1";
 			startTime = System.currentTimeMillis(); // Time at start of query.
 			stmt.executeQuery(qry);
 			endTime = System.currentTimeMillis(); // Time at end of query
