@@ -18,7 +18,7 @@ import simpledb.tx.Transaction;
  */
 public class ExtensibleHash implements Index{
 	
-	public static int NUM_BUCKETS = 2; //cs4432-project2: start with 2 buckets
+	public int NUM_BUCKETS = 2; //cs4432-project2: start with 2 buckets
 	private String idxname;
 	private Schema sch;
 	private Transaction tx;
@@ -85,6 +85,15 @@ public class ExtensibleHash implements Index{
 		// TODO Auto-generated method stub
 		if (ts != null)
 			ts.close();
+	}
+	
+	/**
+	 * globalDepth
+	 * calculates the global depth of the Extensible Hash
+	 * @return the global depth of the hash as an int
+	 */
+	public int globalDepth() {
+		return (int) (Math.log10(NUM_BUCKETS)/Math.log10(2));
 	}
 	
 }
