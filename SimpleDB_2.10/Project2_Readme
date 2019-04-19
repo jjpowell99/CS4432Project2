@@ -15,4 +15,4 @@ simpledb.metadata.IndexMgr.java
 simpledb.metadata.MetadataMgr.java
 simpledb.metadata.IndexInfo.java
 
-simpledb.extensible.ExtensibleHash.java
+simpledb.index.extensible.ExtensibleHash.java
