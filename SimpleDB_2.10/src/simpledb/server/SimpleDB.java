@@ -95,12 +95,14 @@ public class SimpleDB {
    public static LogMgr      logMgr()    { return logm; }
    public static MetadataMgr mdMgr()     { return mdm; }
    
-   /** CS4432-Project2: Changed the update planner used from BasicUpdatePlanner to IndexUpdatePlanner.
+   /** CS4432-Project2: Changed the update planner used from BasicUpdatePlanner to IndexUpdatePlanner and changed 
+    * the query planner from BasicQueryPlanner to HeuristicQueryPlanner.
+    * 
     * Creates a planner for SQL commands.
     * To change how the planner works, modify this method.
     * @return the system's planner for SQL commands
     */public static Planner planner() {
-      QueryPlanner  qplanner = new BasicQueryPlanner();
+      QueryPlanner  qplanner = new HeuristicQueryPlanner();
       UpdatePlanner uplanner = new IndexUpdatePlanner(); 
       return new Planner(qplanner, uplanner);
    }
