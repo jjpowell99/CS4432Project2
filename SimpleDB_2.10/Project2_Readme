@@ -16,3 +16,12 @@ simpledb.metadata.MetadataMgr.java
 simpledb.metadata.IndexInfo.java
 
 simpledb.index.extensible.ExtensibleHash.java
+
+studentClient/simpledb.defaultpackage.CreateTestTables
+studentClient/simpledb.defaultpackage.Project2Testing.java
+
+
+-----------------------------------
+Where to view the diff
+-----------------------------------
+https://github.com/jjpowell99/CS4432Project1/compare/11543150515ab6ef51c817b459e5e863096eb278...master
