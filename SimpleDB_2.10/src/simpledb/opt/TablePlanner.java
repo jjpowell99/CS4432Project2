@@ -86,7 +86,9 @@ class TablePlanner {
          Constant val = mypred.equatesWithConstant(fldname);
          if (val != null) {
             IndexInfo ii = indexes.get(fldname);
-            return new IndexSelectPlan(myplan, ii, val, tx);
+            Plan p = new IndexSelectPlan(myplan, ii, val, tx);
+            System.out.println("Blocks accessed for select: " + p.blocksAccessed()); // cs4432-Project2: Added print for I/O testing
+            return p;
          }
       }
       return null;
@@ -98,6 +100,7 @@ class TablePlanner {
          if (outerfield != null && currsch.hasField(outerfield)) {
             IndexInfo ii = indexes.get(fldname);
             Plan p = new IndexJoinPlan(current, myplan, ii, outerfield, tx);
+            System.out.println("Blocks accessed for join: " + p.blocksAccessed()); // cs4432-Project2: Added print for I/O testing
             p = addSelectPred(p);
             return addJoinPred(p, currsch);
          }

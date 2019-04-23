@@ -34,7 +34,7 @@ import simpledb.tx.Transaction;
 
 public class ExtensibleHash implements Index {
 
-	public int NUM_BUCKETS = 2; // cs4432-project2: start with 2 buckets
+	public static int NUM_BUCKETS = 2; // cs4432-project2: start with 2 buckets
 	private String idxname;
 	private Schema sch;
 	private Transaction tx;
@@ -93,6 +93,8 @@ public class ExtensibleHash implements Index {
 	@Override
 	public void insert(Constant dataval, RID datarid) {
 		int hash = dataval.hashCode() % NUM_BUCKETS;
+		System.out.println(dataval.hashCode() + ", " + hash);
+		System.out.println(this);
 		HashBlock hb = index.get(hash);
 		ArrayList<Node> nodes = hb.getNodes();
 		if (nodes.size() > MAX_BUCKET_SIZE) { // If no more room in bucket, split
@@ -109,7 +111,7 @@ public class ExtensibleHash implements Index {
 			index.put(hash, newHB);
 			ArrayList<Node> tempNodes = new ArrayList<Node>();
 			tempNodes.addAll(nodes);
-			nodes.clear();
+			hb.setNodes(new ArrayList<Node>());
 			hb.increaseDepth();
 			for (Node n : tempNodes) { // Re-insert all values from split block back into the index.
 				insert(n.getDataval(), n.getRid());

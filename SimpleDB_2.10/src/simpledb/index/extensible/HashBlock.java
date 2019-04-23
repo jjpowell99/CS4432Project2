@@ -31,4 +31,7 @@ public class HashBlock {
 		String ret = "" + localDepth + "\t" + nodes.size();
 		return ret;
 	}
+	public void setNodes(ArrayList<Node> newNodes) {
+		nodes = newNodes;
+	}
 }

@@ -48,36 +48,6 @@ public class Project2Testing {
 			endTime = System.currentTimeMillis(); // Time at end of query
 			time4 = endTime - startTime;
 			
-			// Test Joins
-			
-			// Test Join Tables 1 and 5
-			qry = "select a1, a2, a1, a2 from test5, test1 where a1 = a1";
-			startTime = System.currentTimeMillis(); // Time at start of query.
-			stmt.executeQuery(qry);
-			endTime = System.currentTimeMillis(); // Time at end of query
-			joinTime1 = endTime - startTime;
-			
-			// Test Join Tables 2 and 5
-			qry = "select a1, a2, a1, a2 from test5, test2 where a1 = a1";
-			startTime = System.currentTimeMillis(); // Time at start of query.
-			stmt.executeQuery(qry);
-			endTime = System.currentTimeMillis(); // Time at end of query
-			joinTime2 = endTime - startTime;
-			
-			// Test Join Tables 3 and 5
-			qry = "select a1, a2, a1, a2 from test5, test3 where a1 = a1";
-			startTime = System.currentTimeMillis(); // Time at start of query.
-			stmt.executeQuery(qry);
-			endTime = System.currentTimeMillis(); // Time at end of query
-			joinTime3 = endTime - startTime;
-			
-			// Test Join Tables 4 and 5
-			qry = "select a1, a2, a1, a2 from test5, test4 where a1 = a1";
-			startTime = System.currentTimeMillis(); // Time at start of query.
-			stmt.executeQuery(qry);
-			endTime = System.currentTimeMillis(); // Time at end of query
-			joinTime4 = endTime - startTime;
-			
 			// Print results
 			System.out.println("Times for selection of a1 = " + testConstant + ":");
 			System.out.println("Test1 (static hash): " + time1 + " ms");
@@ -85,10 +55,42 @@ public class Project2Testing {
 			System.out.println("Test3 (b-tree): " + time3 + " ms");
 			System.out.println("Test4 (no index): " + time4 + " ms");
 			
+			// Test Joins
 			System.out.println("\nTimes for join on a1 with Test5 (no index):");
-			System.out.println("Test1 (static hash): " + joinTime1 + " ms");
+
+			// Test Join Tables 1 and 5
+//			qry = "select a1, a2, a1, a2 from test5, test1 where a1 = test1.a1";
+//			startTime = System.currentTimeMillis(); // Time at start of query.
+//			stmt.executeQuery(qry);
+//			endTime = System.currentTimeMillis(); // Time at end of query
+//			joinTime1 = endTime - startTime;
+//			System.out.println("Test1 (static hash): " + joinTime1 + " ms");
+			
+//			// Test Join Tables 2 and 5
+			qry = "select a1, a2, a1, a2 from test5, test2 where a1 = test2.a1";
+			startTime = System.currentTimeMillis(); // Time at start of query.
+			stmt.executeQuery(qry);
+			endTime = System.currentTimeMillis(); // Time at end of query
+			joinTime2 = endTime - startTime;
 			System.out.println("Test2 (extensible hash): " + joinTime2 + " ms");
-			System.out.println("Test3 (b-tree): " + joinTime3 + " ms");
+
+			
+			// Test Join Tables 3 and 5
+//			qry = "select a1, a2, a1, a2 from test5, test3 where a1 = test3.a1";
+//			startTime = System.currentTimeMillis(); // Time at start of query.
+//			stmt.executeQuery(qry);
+//			endTime = System.currentTimeMillis(); // Time at end of query
+//			joinTime3 = endTime - startTime;
+//			System.out.println("Test3 (b-tree): " + joinTime3 + " ms");
+
+			
+			// Test Join Tables 4 and 5
+			qry = "select a1, a2, a1, a2 from test5, test4 where a1 = test4.a1";
+			startTime = System.currentTimeMillis(); // Time at start of query.
+			stmt.executeQuery(qry);
+			endTime = System.currentTimeMillis(); // Time at end of query
+			joinTime4 = endTime - startTime;
+			
 			System.out.println("Test4 (no index): " + joinTime4 + " ms");
 
 		}
