@@ -124,6 +124,9 @@ public class Transaction {
    public String getString(Block blk, int offset) {
       concurMgr.sLock(blk);
       Buffer buff = myBuffers.getBuffer(blk);
+      //System.out.println(blk);
+      //System.out.println(offset);
+      //System.out.println(buff.getString(offset));
       return buff.getString(offset);
    }
    

@@ -113,12 +113,12 @@ class BasicBufferMgr extends AbsBufferMgr{
          Block b = buff.block();
          if (b != null && b.equals(blk)) {
         	 endTime = System.nanoTime();
-        	 System.out.println("Time for find existing buffer: " + (endTime-startTime) + " ns");
+        	 //System.out.println("Time for find existing buffer: " + (endTime-startTime) + " ns");
             return buff;
          }
       }
  	  endTime = System.nanoTime();
- 	  System.out.println("Time for find that buffer doesn't exist in pool: " + (endTime-startTime) + " ns");
+ 	  //System.out.println("Time for find that buffer doesn't exist in pool: " + (endTime-startTime) + " ns");
       return null;
    }
    /**
@@ -131,12 +131,12 @@ class BasicBufferMgr extends AbsBufferMgr{
       for (Buffer buff : bufferpool)
          if (!buff.isPinned()) {
         	 endTime = System.nanoTime();
-        	 System.out.println("Time choose unpinned buffer: " + (endTime-startTime) + " ns");
+        	 //System.out.println("Time choose unpinned buffer: " + (endTime-startTime) + " ns");
              return buff;
 
          }
  	 endTime = System.nanoTime();
- 	 System.out.println("Time determine no available buffers: " + (endTime-startTime) + " ns");
+ 	 //System.out.println("Time determine no available buffers: " + (endTime-startTime) + " ns");
       return null;
    }
    

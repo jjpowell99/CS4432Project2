@@ -17,7 +17,7 @@ public class CreateTestTables {
 		Driver d = new SimpleDriver();
 		String host = "localhost"; //you may change it if your SimpleDB server is running on a different machine
 		String url = "jdbc:simpledb://" + host;
-		String qry="Create table test1" +
+		String qry="Create table test0" +
 				"( a1 int," +
 				"  a2 int"+
 				")";
@@ -30,28 +30,28 @@ public class CreateTestTables {
 					"( a1 int," +
 					"  a2 int"+
 					")");
-			s.executeUpdate("Create table test2" +
-					"( a1 int," +
-					"  a2 int"+
-					")");
-			s.executeUpdate("Create table test3" +
-					"( a1 int," +
-					"  a2 int"+
-					")");
-			s.executeUpdate("Create table test4" +
-					"( a1 int," +
-					"  a2 int"+
-					")");
-			s.executeUpdate("Create table test5" +
-					"( a1 int," +
-					"  a2 int"+
-					")");
+//			s.executeUpdate("Create table test2" +
+//					"( a1 int," +
+//					"  a2 int"+
+//					")");
+//			s.executeUpdate("Create table test3" +
+//					"( a1 int," +
+//					"  a2 int"+
+//					")");
+//			s.executeUpdate("Create table test4" +
+//					"( a1 int," +
+//					"  a2 int"+
+//					")");
+//			s.executeUpdate("Create table test5" +
+//					"( a1 int," +
+//					"  a2 int"+
+//					")");
 
-			s.executeUpdate("create eh index idx2 on test2 (a1)");
+//			s.executeUpdate("create eh index idx2 on test2 (a1)");
 			s.executeUpdate("create sh index idx1 on test1 (a1)");
-			s.executeUpdate("create bt index idx3 on test3 (a1)");
+//			s.executeUpdate("create bt index idx3 on test3 (a1)");
 			char a = 'a';
-			for(int i=1;i<6;i++)
+			for(int i=1;i<2;i++)
 			{
 				if(i!=5)
 				{
@@ -69,6 +69,7 @@ public class CreateTestTables {
 					}
 				}
 			}
+			System.out.println("Finished creating test table 1");
 			conn.close();
 
 		} catch (SQLException e) {

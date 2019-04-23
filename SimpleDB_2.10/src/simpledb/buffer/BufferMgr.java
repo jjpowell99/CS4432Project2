@@ -39,7 +39,7 @@ public class BufferMgr{
 	  /*CS4432-Project1:
 	   * can change between BasicBufferMgr and LRUBufferMgr without breaking the program, used for testing.
 	   */
-      bufferMgr = new LRUBufferMgr(numbuffers);
+      bufferMgr = new BasicBufferMgr(numbuffers);
    }
    
    /**
@@ -59,8 +59,11 @@ public class BufferMgr{
             wait(MAX_TIME);
             buff = bufferMgr.pin(blk);
          }
-         if (buff == null)
-            throw new BufferAbortException();
+         if (buff == null) {
+        	 System.out.println(this.toString());
+        	 System.out.println(blk);
+             throw new BufferAbortException();
+         }
          //System.out.println(this.toString());
          return buff;
       }
