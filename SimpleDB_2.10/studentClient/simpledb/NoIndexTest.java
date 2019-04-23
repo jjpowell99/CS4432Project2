@@ -6,7 +6,18 @@ import java.util.Random;
 
 import simpledb.remote.SimpleDriver;
 
+/**
+ * cs4432-project2:
+ * This class is used to test select, joins, and deletes on a table with no index to
+ * compare it with the results of the indexed tables, specifically the extensible
+ * hash we created
+ * 
+ * @author Jackson Powell
+ * @author Andrew Nolan
+ *
+ */
 public class NoIndexTest {
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Connection conn = null;
@@ -43,6 +54,25 @@ public class NoIndexTest {
 			
 			System.out.println("Test4 (no index): " + joinTime4 + " ms");
 
+			//Test a delete statement
+			qry = "delete from test4 where a1 = testConstant";
+			startTime = System.currentTimeMillis();
+			stmt.executeUpdate(qry);
+			endTime = System.currentTimeMillis();
+			long deleteTime = endTime-startTime;
+			System.out.println("Time to delete from no index: "+deleteTime+" ms" );
+			
+			qry = "select a1, a2 from test4 where a1 = " + testConstant;
+			startTime = System.currentTimeMillis(); // Time at start of query.
+			stmt.executeQuery(qry);
+			endTime = System.currentTimeMillis(); // Time at end of query
+			time4 = endTime - startTime;
+			
+			// Print results
+			System.out.println("Times for selection of a1 after deletion = " + testConstant + ":");
+			System.out.println("Test4 (no index): " + time4 + " ms");
+			
+			
 		}
 		catch(SQLException e) {
 			e.printStackTrace();

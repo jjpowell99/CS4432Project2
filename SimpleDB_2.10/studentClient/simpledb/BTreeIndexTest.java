@@ -5,7 +5,15 @@ import java.sql.Statement;
 import java.util.Random;
 
 import simpledb.remote.SimpleDriver;
-
+/**
+ * cs4432-project2:
+ * This class is used to test select, joins, and deletes on a table with a BTree Index to
+ * compare it with the results of a non indexed table andthe other indexed tables, specifically 
+ * the extensible hash we created
+ * @author Jackson Powell
+ * @author Andrew Nolan
+ *
+ */
 public class BTreeIndexTest {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -41,8 +49,25 @@ public class BTreeIndexTest {
 			endTime = System.currentTimeMillis(); // Time at end of query
 			joinTime3 = endTime - startTime;
 			System.out.println("Test3 (b-tree): " + joinTime3 + " ms");
+			
+			//Test a delete statement
+			qry = "delete from test3 where a1 = testConstant";
+			startTime = System.currentTimeMillis();
+			stmt.executeUpdate(qry);
+			endTime = System.currentTimeMillis();
+			long deleteTime = endTime-startTime;
+			System.out.println("Time to delete from btree index: "+deleteTime+" ms" );
+			
+			qry = "select a1, a2 from test3 where a1 = " + testConstant;
+			startTime = System.currentTimeMillis(); // Time at start of query.
+			stmt.executeQuery(qry);
+			endTime = System.currentTimeMillis(); // Time at end of query
+			time3 = endTime - startTime;
 
-
+			// Print results
+			System.out.println("Times for selection of a1 after deletion= " + testConstant + ":");
+			System.out.println("Test3 (b-tree): " + time3 + " ms");
+			
 		}
 		catch(SQLException e) {
 			e.printStackTrace();

@@ -6,6 +6,15 @@ import java.util.Random;
 
 import simpledb.remote.SimpleDriver;
 
+/**
+ * cs4432-project2:
+ * This class is used to test select, joins, and deletes on a table with a Static Hash Index to
+ * compare it with the results of a non indexed table and the other indexed tables, specifically 
+ * the extensible hash we created
+ * @author Jackson Powell
+ * @author Andrew Nolan
+ *
+ */
 public class StaticHashTest {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -19,14 +28,13 @@ public class StaticHashTest {
 			long joinTime1; // Times for join queries to execute for each table
 			Random rand = new Random();
 			int testConstant = rand.nextInt(1000);
+			
 			// Test Table 1
 			String qry = "select a1, a2 from test1 where a1 = " + testConstant;
 			long startTime = System.currentTimeMillis(); // Time at start of query.
 			stmt.executeQuery(qry);
 			long endTime = System.currentTimeMillis(); // Time at end of query
 			time1 = endTime - startTime;
-			
-			
 			
 			// Print results
 			System.out.println("Times for selection of a1 = " + testConstant + ":");
@@ -42,6 +50,25 @@ public class StaticHashTest {
 			endTime = System.currentTimeMillis(); // Time at end of query
 			joinTime1 = endTime - startTime;
 			System.out.println("Test1 (static hash): " + joinTime1 + " ms");
+			
+			//Test a delete statement
+			qry = "delete from test1 where a1 = testConstant";
+			startTime = System.currentTimeMillis();
+			stmt.executeUpdate(qry);
+			endTime = System.currentTimeMillis();
+			long deleteTime = endTime-startTime;
+			System.out.println("Time to delete from static hash: "+deleteTime+" ms" );
+			
+			// Test Table 1
+			qry = "select a1, a2 from test1 where a1 = " + testConstant;
+			startTime = System.currentTimeMillis(); // Time at start of query.
+			stmt.executeQuery(qry);
+			endTime = System.currentTimeMillis(); // Time at end of query
+			time1 = endTime - startTime;
+					
+			// Print results
+			System.out.println("Times for selection of a1 = " + testConstant + ":");
+			System.out.println("Test1 (static hash): " + time1 + " ms");
 			
 
 		}
