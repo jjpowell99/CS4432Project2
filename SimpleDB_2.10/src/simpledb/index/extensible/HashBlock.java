@@ -27,4 +27,8 @@ public class HashBlock {
 	public ArrayList<Node> getNodes(){
 		return this.nodes;
 	}
+	public String toString() {
+		String ret = "" + localDepth + "\t" + nodes.size();
+		return ret;
+	}
 }

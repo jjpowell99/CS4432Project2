@@ -27,8 +27,8 @@ public class CreateTestTables {
 			conn = d.connect(url, null);
 			s=conn.createStatement();
 			s.executeUpdate("Create table test1" +
-					"( a1 int," +
-					"  a2 int"+
+					"( a1 varchar(3)," +
+					"  a2 varchar(3)"+
 					")");
 //			s.executeUpdate("Create table test2" +
 //					"( a1 int," +
@@ -58,7 +58,7 @@ public class CreateTestTables {
 					rand=new Random(1);// ensure every table gets the same data
 					for(int j=0;j<maxSize;j++)
 					{
-						s.executeUpdate("insert into test"+i+" (a1,a2) values("+rand.nextInt(1000)+","+rand.nextInt(1000)+ ")");
+						s.executeUpdate("insert into test"+i+" (a1,a2) values('"+rand.nextInt(1000)+"','"+rand.nextInt(1000)+ "')");
 					}
 				}
 				else//case where i=5
