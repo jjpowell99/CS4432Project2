@@ -52,7 +52,7 @@ public class StaticHashTest {
 			System.out.println("Test1 (static hash): " + joinTime1 + " ms");
 			
 			//Test a delete statement
-			qry = "delete from test1 where a1 = testConstant";
+			qry = "delete from test1 where a1 = "+testConstant;
 			startTime = System.currentTimeMillis();
 			stmt.executeUpdate(qry);
 			endTime = System.currentTimeMillis();
@@ -67,7 +67,7 @@ public class StaticHashTest {
 			time1 = endTime - startTime;
 					
 			// Print results
-			System.out.println("Times for selection of a1 = " + testConstant + ":");
+			System.out.println("\nTimes for selection of a1 = " + testConstant + ":");
 			System.out.println("Test1 (static hash): " + time1 + " ms");
 			
 

@@ -51,7 +51,7 @@ public class BTreeIndexTest {
 			System.out.println("Test3 (b-tree): " + joinTime3 + " ms");
 			
 			//Test a delete statement
-			qry = "delete from test3 where a1 = testConstant";
+			qry = "delete from test3 where a1 = "+testConstant;
 			startTime = System.currentTimeMillis();
 			stmt.executeUpdate(qry);
 			endTime = System.currentTimeMillis();
@@ -65,7 +65,7 @@ public class BTreeIndexTest {
 			time3 = endTime - startTime;
 
 			// Print results
-			System.out.println("Times for selection of a1 after deletion= " + testConstant + ":");
+			System.out.println("\nTimes for selection of a1 after deletion= " + testConstant + ":");
 			System.out.println("Test3 (b-tree): " + time3 + " ms");
 			
 		}

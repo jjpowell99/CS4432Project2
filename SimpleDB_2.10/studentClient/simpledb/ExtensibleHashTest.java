@@ -57,12 +57,12 @@ public class ExtensibleHashTest {
 			System.out.println("Test2 (extensible hash): " + joinTime2 + " ms");
 
 			//Test a delete statement
-			qry = "delete from test2 where a1 = testConstant";
+			qry = "delete from test2 where a1 = "+testConstant;
 			startTime = System.currentTimeMillis();
 			stmt.executeUpdate(qry);
 			endTime = System.currentTimeMillis();
 			long deleteTime = endTime-startTime;
-			System.out.println("Time to delete from extensible hash: "+deleteTime+" ms" );
+			System.out.println("\nTime to delete from extensible hash: "+deleteTime+" ms" );
 			
 			// Test Table 2
 			qry = "select a1, a2 from test2 where a1 = " + testConstant;

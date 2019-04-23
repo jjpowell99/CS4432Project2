@@ -55,7 +55,7 @@ public class NoIndexTest {
 			System.out.println("Test4 (no index): " + joinTime4 + " ms");
 
 			//Test a delete statement
-			qry = "delete from test4 where a1 = testConstant";
+			qry = "delete from test4 where a1 = "+testConstant;
 			startTime = System.currentTimeMillis();
 			stmt.executeUpdate(qry);
 			endTime = System.currentTimeMillis();
@@ -69,7 +69,7 @@ public class NoIndexTest {
 			time4 = endTime - startTime;
 			
 			// Print results
-			System.out.println("Times for selection of a1 after deletion = " + testConstant + ":");
+			System.out.println("\nTimes for selection of a1 after deletion = " + testConstant + ":");
 			System.out.println("Test4 (no index): " + time4 + " ms");
 			
 			
