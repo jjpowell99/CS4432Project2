@@ -41,7 +41,7 @@ public class ExtensibleHash implements Index {
 	private Constant searchkey = null;
 	private TableScan ts = null;
 	private TableInfo ti;
-	private Map<Integer, HashBlock> index;
+	private static Map<Integer, HashBlock> index=new HashMap<Integer, HashBlock>();;
 	public final static int MAX_BUCKET_SIZE = 16;
 
 	/**
@@ -55,10 +55,11 @@ public class ExtensibleHash implements Index {
 		this.idxname = idxname;
 		this.sch = sch;
 		this.tx = tx;
-
-		this.index = new HashMap<Integer, HashBlock>();
-		index.put(0, new HashBlock(1));
-		index.put(1, new HashBlock(1));
+		
+		if(index.isEmpty()) {
+			index.put(0, new HashBlock(1));
+			index.put(1, new HashBlock(1));
+		}
 	}
 
 	@Override
