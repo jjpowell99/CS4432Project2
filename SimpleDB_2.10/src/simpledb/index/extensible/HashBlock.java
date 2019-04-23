@@ -1,23 +1,30 @@
 package simpledb.index.extensible;
 
+import java.util.ArrayList;
+
 import simpledb.file.Block;
 import simpledb.record.TableInfo;
 import simpledb.tx.Transaction;
 
 public class HashBlock {
 	
+	private ArrayList<Node> nodes;
 	private int localDepth;
-	private Block currentblk;
-	private TableInfo ti;
-	private Transaction tx;
-	private int slotsize;
-	private int numRecords;
 	
-	public HashBlock(Block currentblk, TableInfo ti, Transaction tx) {
-		this.currentblk=currentblk;
-		this.ti=ti;
-		this.tx=tx;
-		slotsize=ti.recordLength();
-		tx.pin(currentblk);
+	public HashBlock(int localDepth) {
+		this.localDepth=localDepth;
+		nodes = new ArrayList<Node>();
+	}
+	
+	public void increaseDepth() {
+		this.localDepth++;
+	}
+	
+	public int getLocalDepth() {
+		return this.localDepth;
+	}
+	
+	public ArrayList<Node> getNodes(){
+		return this.nodes;
 	}
 }

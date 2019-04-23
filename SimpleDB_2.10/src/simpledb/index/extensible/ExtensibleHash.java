@@ -1,3 +1,12 @@
+/*
+ * notes:
+ * do it with binary
+ * only use 20,000 records not 100,000
+ * make a max bucket size
+ * 
+ */
+
+
 package simpledb.index.extensible;
 
 import java.util.HashMap;
@@ -21,7 +30,7 @@ import simpledb.tx.Transaction;
  * Implementation of an extensible hash for part 2 of project 2.
  */
 
-//change insert, split, and before first
+//change insert, constructor, and before first
 
 public class ExtensibleHash implements Index{
 	
@@ -47,12 +56,10 @@ public class ExtensibleHash implements Index{
 		this.idxname = idxname;
 		this.sch = sch;
 		this.tx = tx;
-		this.index=new HashMap<Integer, HashBlock>();
 		
-		TableInfo ti0 = new TableInfo(idxname+"0", sch);
-		TableInfo ti1 = new TableInfo(idxname+"1", sch);
-		index.put(0, new HashBlock(new Block(idxname+"0", 0), ti0, tx));
-		index.put(1, new HashBlock(new Block(idxname+"1", 0), ti1, tx));
+		this.index=new HashMap<Integer, HashBlock>();
+		index.put(0, new HashBlock(1));
+		index.put(1, new HashBlock(1));
 	}
 	
 	@Override
