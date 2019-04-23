@@ -1,5 +1,9 @@
 package simpledb.index.extensible;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import simpledb.file.Block;
 import simpledb.index.Index;
 import simpledb.query.Constant;
 import simpledb.query.TableScan;
@@ -16,6 +20,9 @@ import simpledb.tx.Transaction;
  *
  * Implementation of an extensible hash for part 2 of project 2.
  */
+
+//change insert, split, and before first
+
 public class ExtensibleHash implements Index{
 	
 	public int NUM_BUCKETS = 2; //cs4432-project2: start with 2 buckets
@@ -24,16 +31,33 @@ public class ExtensibleHash implements Index{
 	private Transaction tx;
 	private Constant searchkey = null;
 	private TableScan ts = null;
+	private TableInfo ti;
+	private Map<Integer, HashBlock> index;
 	
+	
+	
+	/**
+	 * cs4432-project2:
+	 * constructor for ExtensibleHash
+	 * @param idxname - index name
+	 * @param sch - schema
+	 * @param tx - transaction
+	 */
 	public ExtensibleHash(String idxname, Schema sch, Transaction tx) {
 		this.idxname = idxname;
 		this.sch = sch;
 		this.tx = tx;
+		this.index=new HashMap<Integer, HashBlock>();
+		
+		TableInfo ti0 = new TableInfo(idxname+"0", sch);
+		TableInfo ti1 = new TableInfo(idxname+"1", sch);
+		index.put(0, new HashBlock(new Block(idxname+"0", 0), ti0, tx));
+		index.put(1, new HashBlock(new Block(idxname+"1", 0), ti1, tx));
 	}
 	
 	@Override
 	public void beforeFirst(Constant searchkey) {
-		// TODO Auto-generated method stub
+		
 		close();
 		this.searchkey = searchkey;
 		int bucket = searchkey.hashCode() % NUM_BUCKETS;
@@ -69,7 +93,12 @@ public class ExtensibleHash implements Index{
 		ts.setVal("dataval", dataval);
 	}
 
-	@Override
+	/**
+	 * delete
+	 * deletes something
+	 * @param dataval
+	 * @param datarid
+	 */
 	public void delete(Constant dataval, RID datarid) {
 		// TODO Auto-generated method stub
 		beforeFirst(dataval);
