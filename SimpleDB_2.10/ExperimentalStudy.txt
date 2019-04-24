@@ -1,13 +1,13 @@
 ExperimentalStudy.txt
 Andrew Nolan and Jackson Powell
 
-Time[ms] for select from 5,000 record tables:
+Time[ms] for select from 5,000 record tables where a1=432:
 	Test1(static hash): 16, 15, 16				Average: 15.67
 	Test2(Extensible hash): 254, 15, 15			Average: 94.67
 	Test3(B-tree): 16, 15, 0					Average: 10.33
 	Test4(No index): 16, 16, 0					Average: 10.67
 	
-I/Os for select from 5,000 record tables:
+I/Os for select from 5,000 record tables where a1=432:
 	Test1(static hash): 3, 3, 3
 	Test2(Extensible hash): 3, 3, 3
 	Test3(B-tree): 3, 3, 3
@@ -26,7 +26,12 @@ I/Os for join of 5,000 record tables with 2,500 record table without an index:
 	Test4(No index): 227, 227, 227
 	
 Analysis:
-	
+	The times for selection queries were all about the same of 15-16 ms, excluding the outliers of 254 and 0 
+which is expected due to the relatively low size of our tables. The times for the join queries 
+matched our expectations in terms of performance results, as the average times were all within 320 ms,
+but the table with no index performed the quickest due to the low number of records used and less 
+overhead. Our extensible hash index performed better on average than the other two indices, 
+describing potential for even more advantages with larger tables. 
 
 Example output for inserting into extensible hash index:
 Inserting 452 with hash: 0
