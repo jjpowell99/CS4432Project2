@@ -116,11 +116,12 @@ public class ExtensibleHash implements Index {
 	 */
 	public void insert(Constant dataval, RID datarid) {
 		int hash = dataval.hashCode() % NUM_BUCKETS;
-		System.out.println(dataval + ", " + hash);
-		//System.out.println(this); // Print the state of the hash index, before inserting the above printed dataval.
+		System.out.println("Inserting " + dataval + " with hash: " + hash);
 		HashBlock hb = index.get(hash);
 		ArrayList<Node> nodes = hb.getNodes();
 		if (nodes.size() > MAX_BUCKET_SIZE) { // If no more room in bucket, split
+			System.out.println("Old global table");
+			System.out.println(this);
 			// If local depth > global, double directory
 			if (hb.getLocalDepth() == globalDepth()) {
 				// Copy mapped hash blocks when expanding directory. 
@@ -128,6 +129,7 @@ public class ExtensibleHash implements Index {
 					index.put(i+NUM_BUCKETS, index.get(i));
 				}
 				NUM_BUCKETS *= 2;
+				System.out.println("Increasing global depth from " + (globalDepth()-1) + " to " + globalDepth());
 			}
 			// Update block for hash that needs to split
 			HashBlock newHB = new HashBlock(hb.getLocalDepth() + 1);
@@ -139,6 +141,8 @@ public class ExtensibleHash implements Index {
 			for (Node n : tempNodes) { // Re-insert all values from split block back into the index.
 				insert(n.getDataval(), n.getRid());
 			}
+			System.out.println("New table:");
+			System.out.println(this);
 
 		} else { // Otherwise just add value.
 			nodes.add(new Node(dataval, datarid));

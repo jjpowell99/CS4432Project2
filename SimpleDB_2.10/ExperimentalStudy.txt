@@ -1,8 +1,72 @@
 ExperimentalStudy.txt
 Andrew Nolan and Jackson Powell
 
-Time for select from 10,000 record tables:
-	Test1(static hash): 
-	Test2(Extensible hash):
-	Test3(B-tree):
-	Test4(No index):
+Time[ms] for select from 5,000 record tables:
+	Test1(static hash): 16, 15, 16				Average: 15.67
+	Test2(Extensible hash): 254, 15, 15			Average: 94.67
+	Test3(B-tree): 16, 15, 0					Average: 10.33
+	Test4(No index): 16, 16, 0					Average: 10.67
+	
+I/Os for select from 5,000 record tables:
+	Test1(static hash): 3, 3, 3
+	Test2(Extensible hash): 3, 3, 3
+	Test3(B-tree): 3, 3, 3
+	Test4(No index): 152, 152, 152
+
+Time[ms] for join of 5,000 record tables with 2,500 record table without an index:
+	Test1(static hash): 1473, 1583, 767			Average: 1274.33
+	Test2(Extensible hash): 782, 1050, 1124		Average: 985.33
+	Test3(B-tree): 1149, 1119, 924				Average: 1064
+	Test4(No index): 1033, 814, 1033			Average: 960
+	
+I/Os for join of 5,000 record tables with 2,500 record table without an index:
+	Test1(static hash): 227, 227, 228
+	Test2(Extensible hash): 227, 227, 228
+	Test3(B-tree): 227, 227, 228
+	Test4(No index): 227, 227, 227
+	
+Analysis:
+	
+
+Example output for inserting into extensible hash index:
+Inserting 452 with hash: 0
+Old global table
+Hash	Local Depth	Number of records	Global Depth = 1
+0		1	65
+1		1	60
+Increasing global depth from 1 to 2
+New table:
+Hash	Local Depth	Number of records	Global Depth = 2
+0		2	33
+1		1	60
+2		2	32
+3		1	60
+Inserting 676 with hash: 0
+Inserting 536 with hash: 0
+Inserting 358 with hash: 2
+Inserting 504 with hash: 0
+Inserting 600 with hash: 0
+Inserting 486 with hash: 2
+Inserting 598 with hash: 2
+Inserting 908 with hash: 0
+Inserting 865 with hash: 1
+Inserting 859 with hash: 3
+Inserting 615 with hash: 3
+Inserting 522 with hash: 2
+Inserting 192 with hash: 0
+Inserting 1 with hash: 1
+Inserting 688 with hash: 0
+Inserting 241 with hash: 1
+Inserting 485 with hash: 1
+Old global table
+Hash	Local Depth	Number of records	Global Depth = 2
+0		2	40
+1		1	65
+2		2	36
+3		1	65
+New table:
+Hash	Local Depth	Number of records	Global Depth = 2
+0		2	40
+1		2	37
+2		2	36
+3		2	28

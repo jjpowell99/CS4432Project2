@@ -86,3 +86,14 @@ public class StaticHashTest {
 		}
 	}
 }
+/* Example output:
+Times for selection of a1 = 432:
+Test1 (static hash): 0 ms
+
+Times for join on a1 with Test5 (Static Hash):
+Test1 (static hash): 1256 ms
+Time to delete from static hash: 10 ms
+
+Times for selection of a1 = 432:
+Test1 (static hash): 3 ms
+ */

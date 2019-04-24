@@ -7,7 +7,7 @@ import java.sql.Statement;
 import java.util.Random;
 import simpledb.remote.SimpleDriver;
 public class CreateTestTables {
-	final static int maxSize=10000;
+	final static int maxSize=5000;
 	/**
 	 * @param args
 	 */

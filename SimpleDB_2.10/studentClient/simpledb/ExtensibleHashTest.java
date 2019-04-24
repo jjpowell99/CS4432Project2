@@ -92,3 +92,15 @@ public class ExtensibleHashTest {
 		}
 	}
 }
+/* Example output:
+Times for selection of a1 = 432:
+Test2 (extensible hash): 0 ms
+
+Times for join on a1 with Test5 (Extensible Hash):
+Test2 (extensible hash): 1154 ms
+
+Time to delete from extensible hash: 16 ms
+Times for selection of a1 = 432:
+Test2 (extensible hash): 16 ms
+
+*/

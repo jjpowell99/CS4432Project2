@@ -83,3 +83,14 @@ public class BTreeIndexTest {
 		}
 	}
 }
+/* Example output:
+Times for selection of a1 = 432:
+Test3 (b-tree): 0 ms
+
+Times for join on a1 with Test5 (BTree Index):
+Test3 (b-tree): 924 ms
+Time to delete from btree index: 0 ms
+
+Times for selection of a1 after deletion= 432:
+Test3 (b-tree): 0 ms
+*/

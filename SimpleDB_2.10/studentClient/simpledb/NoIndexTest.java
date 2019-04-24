@@ -88,3 +88,14 @@ public class NoIndexTest {
 		}
 	}
 }
+/*Example output:
+Times for selection of a1 = 432:
+Test4 (no index): 0 ms
+
+Times for join on a1 with Test5 (no index):
+Test4 (no index): 1189 ms
+Time to delete from no index: 16 ms
+
+Times for selection of a1 after deletion = 432:
+Test4 (no index): 16 ms 
+*/
