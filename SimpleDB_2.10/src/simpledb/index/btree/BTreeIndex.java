@@ -125,6 +125,7 @@ public class BTreeIndex implements Index {
     * @see simpledb.index.Index#delete(simpledb.query.Constant, simpledb.record.RID)
     */
    public void delete(Constant dataval, RID datarid) {
+	   System.out.println("b-tree delete");
       beforeFirst(dataval);
       leaf.delete(datarid);
       leaf.close();

@@ -29,8 +29,7 @@ public class ExtensibleHashTest {
 			Statement stmt = conn.createStatement();
 			long time2; // Times for selection queries to execute on four tables
 			long joinTime2; // Times for join queries to execute for each table
-			Random rand = new Random();
-			int testConstant = rand.nextInt(1000);
+			int testConstant = 432;
 			
 			// Test Table 2
 			String qry = "select a1, a2 from test2 where a1 = " + testConstant;
@@ -75,8 +74,8 @@ public class ExtensibleHashTest {
 			System.out.println("Times for selection of a1 = " + testConstant + ":");
 			System.out.println("Test2 (extensible hash): " + time2 + " ms");
 			
-			stmt.executeUpdate("insert into test2 (a1,a2) values(" + rand.nextInt(1000) + ","
-					+ rand.nextInt(1000) + ")");
+			stmt.executeUpdate("insert into test2 (a1,a2) values(" + testConstant + ","
+					+ testConstant + ")");
 		}
 		catch(SQLException e) {
 			e.printStackTrace();

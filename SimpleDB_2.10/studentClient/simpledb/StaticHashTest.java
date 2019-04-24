@@ -26,8 +26,7 @@ public class StaticHashTest {
 			Statement stmt = conn.createStatement();
 			long time1; // Times for selection queries to execute on four tables
 			long joinTime1; // Times for join queries to execute for each table
-			Random rand = new Random();
-			int testConstant = rand.nextInt(1000);
+			int testConstant = 432;
 			
 			// Test Table 1
 			String qry = "select a1, a2 from test1 where a1 = " + testConstant;

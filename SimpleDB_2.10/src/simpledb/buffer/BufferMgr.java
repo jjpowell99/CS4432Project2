@@ -39,7 +39,7 @@ public class BufferMgr{
 	  /*CS4432-Project1:
 	   * can change between BasicBufferMgr and LRUBufferMgr without breaking the program, used for testing.
 	   */
-      bufferMgr = new LRUBufferMgr(numbuffers);
+      bufferMgr = new BasicBufferMgr(numbuffers);
    }
    
    /**

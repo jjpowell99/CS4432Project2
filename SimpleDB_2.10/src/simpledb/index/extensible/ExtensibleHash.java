@@ -42,7 +42,7 @@ public class ExtensibleHash implements Index {
 	private TableScan ts = null;
 	private TableInfo ti;
 	private static Map<Integer, HashBlock> index=new HashMap<Integer, HashBlock>(); // Map for hashing search keys into hash buckets.
-	public final static int MAX_BUCKET_SIZE = 16; // Max number of keys per hash bucket.
+	public final static int MAX_BUCKET_SIZE = 64; // Max number of keys per hash bucket.
 
 	/**
 	 * cs4432-project2: constructor for ExtensibleHash
@@ -117,7 +117,7 @@ public class ExtensibleHash implements Index {
 	public void insert(Constant dataval, RID datarid) {
 		int hash = dataval.hashCode() % NUM_BUCKETS;
 		System.out.println(dataval + ", " + hash);
-		System.out.println(this); // Print the state of the hash index, before inserting the above printed dataval.
+		//System.out.println(this); // Print the state of the hash index, before inserting the above printed dataval.
 		HashBlock hb = index.get(hash);
 		ArrayList<Node> nodes = hb.getNodes();
 		if (nodes.size() > MAX_BUCKET_SIZE) { // If no more room in bucket, split

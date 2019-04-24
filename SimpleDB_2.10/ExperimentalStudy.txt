@@ -1,0 +1,8 @@
+ExperimentalStudy.txt
+Andrew Nolan and Jackson Powell
+
+Time for select from 10,000 record tables:
+	Test1(static hash): 
+	Test2(Extensible hash):
+	Test3(B-tree):
+	Test4(No index):
