@@ -43,7 +43,7 @@ compare the results. The times are printed out by these test files. The I/O’s ar
 -----------------------------------
 Files we Modified/Added
 -----------------------------------
---All changes can be viewed in the Diff file--
+--All changes can be viewed in the Diff file or at https://github.com/jjpowell99/CS4432Project1/compare/11543150515ab6ef51c817b459e5e863096eb278...master?diff=unified--
 
 simpledb.buffer.BasicBufferMgr.java
 simpledb.buffer.BufferMgr.java
@@ -79,8 +79,3 @@ simpledb.ExtensibleHashTest.java
 simpledb.NoIndexTest.java
 simpledb.Project2Testing.java
 simpledb.StaticHashTest.java
-
------------------------------------
-Where to view the diff
------------------------------------
-https://github.com/jjpowell99/CS4432Project1/compare/11543150515ab6ef51c817b459e5e863096eb278...master
