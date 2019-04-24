@@ -10,3 +10,18 @@ Known bugs:
 	these bugs. 
 	
 3) 	If the times are longer for our improved system please try again, on average ours is much better.
+
+
+PROJECT 2 BUGS:
+
+1) 	Our extensible hash is implemented using data structures rather than files, this means that the test file and
+	the table creation file must be ran in the same instance of Startup. So run: Startup -> CreateTestTables -> ExtensibleHashTest
+
+2) 	Our hashing is based on the hash value of the dataval object of the nodes. We set our bucket size to be 16
+	consequently, if more than 16 identical dataval objects are added the program may experience unexpected behavior.
+	However, this is unlikely to occur unless there is deliberate sabotage with the insertions.
+	
+3)	Not really a bug, just a consequence of the toString method. When we print out the contents of the hashmap in the
+	extensible hash, the program prints out every pointer and it's respective bucket. This makes it appear that there
+	are more buckets than there actually are, since the pointers may point to the same bucket depending on how the 
+	splitting occurs.
