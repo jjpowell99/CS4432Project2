@@ -62,7 +62,15 @@ public class ExtensibleHash implements Index {
 		}
 	}
 
-	@Override
+	/**
+	 * Positions the index before the first index record
+	 * having the specified search key.
+	 * The method hashes the search key to determine the bucket,
+	 * and then opens a table scan on the file
+	 * corresponding to the bucket.
+	 * The table scan for the previous bucket (if any) is closed.
+	 * @see simpledb.index.Index#beforeFirst(simpledb.query.Constant)
+	 */
 	public void beforeFirst(Constant searchkey) {
 		close();
 		this.searchkey = searchkey;
@@ -72,7 +80,13 @@ public class ExtensibleHash implements Index {
 		ts = new TableScan(ti, tx);
 	}
 
-	@Override
+	/**
+	 * Moves to the next record having the search key.
+	 * The method loops through the table scan for the bucket,
+	 * looking for a matching record, and returning false
+	 * if there are no more such records.
+	 * @see simpledb.index.Index#next()
+	 */
 	public boolean next() {
 		// TODO Auto-generated method stub
 		while (ts.next())
@@ -81,7 +95,11 @@ public class ExtensibleHash implements Index {
 		return false;
 	}
 
-	@Override
+	/**
+	 * Retrieves the dataRID from the current record
+	 * in the table scan for the bucket.
+	 * @see simpledb.index.Index#getDataRid()
+	 */
 	public RID getDataRid() {
 		// TODO Auto-generated method stub
 		int blknum = ts.getInt("block");
@@ -90,10 +108,16 @@ public class ExtensibleHash implements Index {
 	}
 
 	@Override
+	/** 
+	 * Inserts an index record having the specified
+	 * dataval and dataRID values into the HashBlock based on dataval's hashcode.
+	 * @param dataval the dataval in the new index record.
+	 * @param datarid the dataRID in the new index record.
+	 */
 	public void insert(Constant dataval, RID datarid) {
 		int hash = dataval.hashCode() % NUM_BUCKETS;
 		System.out.println(dataval + ", " + hash);
-		System.out.println(this);
+		System.out.println(this); // Print the state of the hash index, before inserting the above printed dataval.
 		HashBlock hb = index.get(hash);
 		ArrayList<Node> nodes = hb.getNodes();
 		if (nodes.size() > MAX_BUCKET_SIZE) { // If no more room in bucket, split
@@ -122,19 +146,17 @@ public class ExtensibleHash implements Index {
 	}
 
 	/**
-	 * Deletes the 
+	 * Deletes the index key with datarid RID
 	 * 
-	 * @param dataval
-	 * @param datarid
+	 * @param dataval Dataval of the index key to delete.
+	 * @param datarid RID of the index key to delete.
 	 */
 	public void delete(Constant dataval, RID datarid) {
 		// TODO Auto-generated method stub
 		beforeFirst(dataval);
 		while (next())
 			if (getDataRid().equals(datarid)) {
-				System.out.println(this);
 				ts.delete();
-				System.out.println(this);
 				return;
 			}
 	}
@@ -157,7 +179,7 @@ public class ExtensibleHash implements Index {
 	/**
 	 * Returns a string describing the state of the extensible hash index by reporting the global depth 
 	 * as well as the local depth and number of index records in each hash bucket. Some index records may 
-	 * be reported twice for buckets with a local depth lower than the global depth 
+	 * be reported twice for buckets with a local depth lower than the global depth.
 	 */
 	public String toString() {
 		String ret = "Hash\tLocal Depth\tNumber of records\tGlobal Depth = " + globalDepth() +"\n";
