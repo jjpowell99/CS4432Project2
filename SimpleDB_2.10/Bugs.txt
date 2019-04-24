@@ -25,3 +25,6 @@ PROJECT 2 BUGS:
 	extensible hash, the program prints out every pointer and it's respective bucket. This makes it appear that there
 	are more buckets than there actually are, since the pointers may point to the same bucket depending on how the 
 	splitting occurs.
+	
+4)	SimpleDB sometimes pins everything in it's buffers. Consequently, large operations, such as joins, sometimes fail
+	during testing. 

@@ -29,6 +29,16 @@ Simpledb will run as it normally does in order to use our additional features on
 create an index on a table to do this, create a table and then run the SQL:
 create [IndexType] index [IndexName] on [TableName] ([FieldName])”.The type of the index must be{sh, bt, or eh}
 
+-----------------------------------
+Running our tests
+-----------------------------------
+To run our tests simply startup SimpleDB and then in the studentClient/simpledb folder run the file CreateTestTables.java.
+This file will generate 4 tables each with 5000 records. One with no index, one with a static hashing index, one with our 
+extensible hash index, and one with a BTree index. It will also generate a non-indexed 2500 record table to test joins 
+with the indexed tables. There are four more test files: ExtensibleHashTest.java, NoIndexTest.java, BTreeIndexTest.java, 
+and StaticHashTest.java. Each of these files will perform the same tests on the different tables. You can run them to 
+compare the results. The times are printed out by these test files. The I/O’s are printed out in startup.java’s console.
+
 
 -----------------------------------
 Files we Modified/Added
