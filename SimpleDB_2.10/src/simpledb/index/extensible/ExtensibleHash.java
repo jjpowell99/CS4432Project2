@@ -21,7 +21,7 @@ import simpledb.record.Schema;
 import simpledb.record.TableInfo;
 import simpledb.tx.Transaction;
 
-/**
+/** cs4432-Project2: Created class to implement extensible hash indexing.
  * ExtensibleHash class
  * 
  * @author Andrew Nolan
@@ -41,8 +41,8 @@ public class ExtensibleHash implements Index {
 	private Constant searchkey = null;
 	private TableScan ts = null;
 	private TableInfo ti;
-	private static Map<Integer, HashBlock> index=new HashMap<Integer, HashBlock>();;
-	public final static int MAX_BUCKET_SIZE = 16;
+	private static Map<Integer, HashBlock> index=new HashMap<Integer, HashBlock>(); // Map for hashing search keys into hash buckets.
+	public final static int MAX_BUCKET_SIZE = 16; // Max number of keys per hash bucket.
 
 	/**
 	 * cs4432-project2: constructor for ExtensibleHash
@@ -64,7 +64,6 @@ public class ExtensibleHash implements Index {
 
 	@Override
 	public void beforeFirst(Constant searchkey) {
-
 		close();
 		this.searchkey = searchkey;
 		int bucket = searchkey.hashCode() % NUM_BUCKETS;
@@ -93,7 +92,7 @@ public class ExtensibleHash implements Index {
 	@Override
 	public void insert(Constant dataval, RID datarid) {
 		int hash = dataval.hashCode() % NUM_BUCKETS;
-		System.out.println(dataval.hashCode() + ", " + hash);
+		System.out.println(dataval + ", " + hash);
 		System.out.println(this);
 		HashBlock hb = index.get(hash);
 		ArrayList<Node> nodes = hb.getNodes();
@@ -123,7 +122,7 @@ public class ExtensibleHash implements Index {
 	}
 
 	/**
-	 * delete deletes something
+	 * Deletes the 
 	 * 
 	 * @param dataval
 	 * @param datarid
@@ -133,7 +132,9 @@ public class ExtensibleHash implements Index {
 		beforeFirst(dataval);
 		while (next())
 			if (getDataRid().equals(datarid)) {
+				System.out.println(this);
 				ts.delete();
+				System.out.println(this);
 				return;
 			}
 	}
@@ -153,10 +154,15 @@ public class ExtensibleHash implements Index {
 	public int globalDepth() {
 		return (int) (Math.log10(NUM_BUCKETS) / Math.log10(2));
 	}
+	/**
+	 * Returns a string describing the state of the extensible hash index by reporting the global depth 
+	 * as well as the local depth and number of index records in each hash bucket. Some index records may 
+	 * be reported twice for buckets with a local depth lower than the global depth 
+	 */
 	public String toString() {
-		String ret = "Hash\tLocal Depth\tNumber of records\n";
+		String ret = "Hash\tLocal Depth\tNumber of records\tGlobal Depth = " + globalDepth() +"\n";
 		for(int i = 0; i < NUM_BUCKETS; i++) {
-			ret += i + "\t" + index.get(i).toString() + "\n";
+			ret += i + "\t\t" + index.get(i).toString() + "\n";
 		}
 		return ret;
 	}

@@ -41,7 +41,7 @@ public class HeuristicQueryPlanner implements QueryPlanner {
          else  // no applicable join
             currentplan = getLowestProductPlan(currentplan);
       }
-      
+      System.out.println("Blocks accessed: " + currentplan.blocksAccessed()); // cs4432-Project2: Added print for I/O testing
       // Step 4.  Project on the field names and return
       return new ProjectPlan(currentplan, data.fields());
    }

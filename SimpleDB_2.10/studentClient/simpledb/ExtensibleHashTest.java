@@ -74,6 +74,9 @@ public class ExtensibleHashTest {
 			// Print results
 			System.out.println("Times for selection of a1 = " + testConstant + ":");
 			System.out.println("Test2 (extensible hash): " + time2 + " ms");
+			
+			stmt.executeUpdate("insert into test2 (a1,a2) values(" + rand.nextInt(1000) + ","
+					+ rand.nextInt(1000) + ")");
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
